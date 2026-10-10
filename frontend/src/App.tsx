@@ -110,7 +110,7 @@ export function App() {
         unreadAlertsCount={1}
       />
 
-      <main className="max-w-md mx-auto min-h-[calc(100vh-120px)]">
+      <main className={`max-w-md mx-auto ${currentTab === 'ask-agri' ? 'h-[calc(100dvh-116px)] overflow-hidden' : 'min-h-[calc(100vh-120px)]'}`}>
         {currentTab === 'home' && (
           <HomeScreen
             onNavigate={(route) => setCurrentTab(route)}

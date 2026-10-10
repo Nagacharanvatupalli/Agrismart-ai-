@@ -325,7 +325,7 @@ export const AskAgriScreen: React.FC<AskAgriScreenProps> = ({ selectedFarm, onBa
   ];
 
   return (
-    <div className="flex flex-col h-[calc(100vh-68px)] max-w-lg mx-auto bg-[#F6F8F7]">
+    <div className="flex flex-col h-full max-w-md mx-auto bg-[#F6F8F7] relative overflow-hidden">
       {/* Hidden File Input & Canvas */}
       <input
         type="file"
@@ -796,13 +796,13 @@ export const AskAgriScreen: React.FC<AskAgriScreenProps> = ({ selectedFarm, onBa
       )}
 
       {/* Bottom Input Controls */}
-      <div className="bg-white border-t border-gray-200 p-3 shadow-lg shrink-0">
-        <div className="flex items-center gap-2">
+      <div className="bg-white border-t border-gray-200/90 px-3 py-2.5 shadow-sm shrink-0 z-20">
+        <div className="flex items-center gap-1.5">
           {/* Camera Trigger */}
           <button
             type="button"
             onClick={() => startCamera('environment')}
-            className="p-2.5 rounded-2xl bg-[#E7F6E9] hover:bg-[#D5EFE0] text-[#005B43] border border-emerald-200 transition-colors shadow-2xs shrink-0 cursor-pointer"
+            className="p-2.5 rounded-xl bg-[#E7F6E9] hover:bg-[#D5EFE0] text-[#005B43] border border-emerald-200 transition-colors shadow-2xs shrink-0 cursor-pointer active:scale-95"
             title={t('takePhoto', 'Take Photo with Camera')}
           >
             <Camera className="w-5 h-5" />
@@ -812,7 +812,7 @@ export const AskAgriScreen: React.FC<AskAgriScreenProps> = ({ selectedFarm, onBa
           <button
             type="button"
             onClick={handleToggleListen}
-            className={`p-2.5 rounded-2xl border transition-colors shadow-2xs shrink-0 cursor-pointer ${
+            className={`p-2.5 rounded-xl border transition-colors shadow-2xs shrink-0 cursor-pointer active:scale-95 ${
               isListening
                 ? 'bg-rose-600 border-rose-500 text-white animate-pulse'
                 : 'bg-gray-50 border-gray-200 hover:bg-gray-100 text-gray-700'
@@ -832,10 +832,10 @@ export const AskAgriScreen: React.FC<AskAgriScreenProps> = ({ selectedFarm, onBa
             }}
             placeholder={
               selectedImage
-                ? t('askFarmerQuestion', 'Ask question about this plant or tap Send to scan...')
+                ? t('askFarmerQuestion', 'Ask question or tap Send to scan...')
                 : t('askFarmerQuestion', 'Ask anything or take leaf photo...')
             }
-            className="flex-1 px-3.5 py-2.5 rounded-2xl border border-gray-200 focus:outline-hidden focus:border-[#005B43] focus:ring-2 focus:ring-[#005B43]/20 text-xs font-semibold text-gray-800 placeholder:text-gray-400"
+            className="flex-1 px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:border-[#005B43] focus:ring-2 focus:ring-[#005B43]/20 text-xs font-semibold text-gray-800 placeholder:text-gray-400 bg-gray-50/50"
           />
 
           {/* Send Button */}
@@ -843,7 +843,7 @@ export const AskAgriScreen: React.FC<AskAgriScreenProps> = ({ selectedFarm, onBa
             type="button"
             onClick={() => handleAsk()}
             disabled={(!question.trim() && !selectedImage) || loading}
-            className="p-2.5 rounded-2xl bg-[#005B43] hover:bg-[#004B37] text-white disabled:opacity-40 transition-colors shadow-2xs shrink-0 cursor-pointer"
+            className="p-2.5 rounded-xl bg-[#005B43] hover:bg-[#004B37] text-white disabled:opacity-40 transition-colors shadow-2xs shrink-0 cursor-pointer active:scale-95"
             title="Send"
           >
             <Send className="w-4 h-4" />
